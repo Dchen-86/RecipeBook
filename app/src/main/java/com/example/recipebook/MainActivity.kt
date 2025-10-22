@@ -16,7 +16,20 @@ import com.example.recipebook.ui.theme.RecipeBookTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent(R.layout.activity_main)
+        enableEdgeToEdge()
+        setContent {
+            RecipeBookTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    com.example.recipebook.Greeting(
+                        name = "Android",
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
+            }
+        }
+
+
+
     }
 }
 
